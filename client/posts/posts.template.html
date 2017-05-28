@@ -1,0 +1,17 @@
+<div class="padding">
+    <a class="btn btn-default" href="#new-post" role="button">New post</a>
+</div>
+
+
+<div  ng-repeat="post in $ctrl.posts">
+    <h2>
+        <a href="#post/{{post.id}}">{{post.title}}</a>
+    </h2>
+
+    <span>{{post.date_post | date:'medium'}}</span>
+    <p>
+        <a href="#post/{{post.id}}">{{post.body}}</a>
+    </p>
+</div>
+
+<p>{{$ctrl.posts}}</p>

@@ -1,0 +1,27 @@
+<form role="form" novalidate name="newPost" class="padding">
+    <h3>Созать пост</h3>
+    <div class="form-group">
+        <label id="title">Заголовок</label>
+        <input type="text"  class="form-control" name="title" placeholder="Title" ng-model="ctrl.post.title" required>
+
+        <div ng-show="newPost.$submitted || newPost.userName.$touched">
+            <div ng-show="postForm.userName.$error.required">Name can't be blank</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label id="body">Статья</label>
+        <textarea  class="form-control" ng-model="$ctrl.post.body" rows="3" placeholder="Body"></textarea>
+    </div>
+
+    <input type="button"
+           class="btn btn-default"
+
+           value="Reset"/>
+
+    <input type="submit"
+           class="btn btn-default"
+           value="Submit"
+           ng-disabled="newPost.title.$error.required && newPost.body.$error.required"
+           ng-click="$ctrl.submit($ctrl.post)"/>
+</form>

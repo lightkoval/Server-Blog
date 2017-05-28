@@ -1,0 +1,53 @@
+<div>
+    <h2>
+        {{$ctrl.post.title}}
+    </h2>
+
+    <span>{{$ctrl.post.date_post | date:'medium'}}</span>
+    <p>
+        {{$ctrl.post.body}}
+    </p>
+</div>
+
+
+<form role="form" novalidate name="postForm" class="padding">
+    <div class="form-group">
+        <label for="title">Title</label>
+        <input type="text"
+               class="form-control"
+               ng-model="$ctrl.post.title"
+               name="title"
+               placeholder="Title"
+               id="title"
+               required/>
+
+        <div ng-show="postForm.$submitted || postForm.title.$touched">
+            <div ng-show="postForm.title.$error.required">Name can't be blank</div>
+        </div>
+    </div>
+
+    <div class="form-group">
+        <label for="body">Body</label>
+        <textarea ng-model="$ctrl.post.body"
+                  class="form-control"
+                  name="body"
+                  rows="3"
+                  id="body"
+                  placeholder="Body">
+        </textarea>
+
+        <div> ng-show="postForm.$submitted || postForm.body.$touched">
+            <div ng-show="postForm.body.$error.required">Name can't be blank</div>
+        </div>
+    </div>
+    <input type="button"
+           class="btn btn-default"
+           ng-click="$ctrl.deletePost()"
+           value="Delete"/>
+
+    <input type="submit"
+           class="btn btn-default"
+           value="Update"
+           ng-disabled="postForm.title.$error.required && postForm.body.$error.required"
+           ng-click="$ctrl.submit($ctrl.post)"/>
+</form>

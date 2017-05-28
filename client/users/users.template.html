@@ -1,0 +1,15 @@
+<div class="padding">
+    <a class="btn btn-default" href="#sign-up" role="button">New user</a>
+</div>
+
+<div class="row" ng-repeat="user in $ctrl.users">
+    <div class="col-md-1"></div>
+    <div class="col-md-5">
+        <a href="#user/{{user.id}}">{{user.name}}</a>
+
+        <p>{{user.role}}</p>
+
+        <p>{{user.email}}</p>
+    </div>
+    <div class="col-md-6"><button class="btn btn-default" ng-click="$ctrl.userDelete(user.id)"> X </button></div>
+</div>
