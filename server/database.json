@@ -1,0 +1,10 @@
+{
+  "dev": {
+    "driver": "pg",
+    "user": "blogger",
+    "password": "1",
+    "host": "localhost",
+    "database": "blog",
+    "schema": "public"
+  }
+}
